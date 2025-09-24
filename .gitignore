@@ -1,3 +1,7 @@
-node_modules
-dist
+# Ignore Node dependencies
+/frontend/node_modules
+/backend/node_modules
+
+# Common ignore files
 .env
+.DS_Store
