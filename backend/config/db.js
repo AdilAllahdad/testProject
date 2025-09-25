@@ -3,7 +3,10 @@ require('dotenv').config();
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.DATABASE_URL, {
+    // Use MONGODB_URI for Vercel deployment, fallback to DATABASE_URL for local development
+    const dbUri = process.env.MONGODB_URI || process.env.DATABASE_URL;
+    
+    await mongoose.connect(dbUri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
